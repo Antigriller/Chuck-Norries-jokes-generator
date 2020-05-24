@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Chuck Norries jokes generator</title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto" rel="stylesheet">
+	<!-- Bootstrap CSS -->
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<script type="text/javascript">
+	var choose = function (item) {
+	if (item == 'random') {
+		document.getElementById("categories").style.display='none';
+		document.getElementById("queryblock").style.display='none';
+	}
+	else if (item == 'from-categories') {
+		document.getElementById("categories").style.display='block';
+		document.getElementById("queryblock").style.display='none';
+	}
+	else if (item == 'search') {
+		document.getElementById("categories").style.display='none';
+		document.getElementById("queryblock").style.display='block';
+	}
+	}
+	var openmenu = function(){
+		document.getElementById("panel").style.visibility='visible';
+		document.getElementById("dark").style.visibility='visible';
+	}
+	var closemenu = function(){
+		document.getElementById("panel").style.visibility='hidden';
+		document.getElementById("dark").style.visibility='hidden';
+	}
+</script>
+<body>
+	<div class="container-fluid">
+		<div class="row">
+			<div id="main">
+				<h1>MSI 2020</h1>
+				<div class="favourite favourite-button-mb" onclick="openmenu()"><div class="img-button"><img src="SVG/fav-open.svg"></div>Favourite</div>
+				<div id="menu">
+					<p id="hey">Hey!</p>
+					<p id="lets">Let's try to find a joke for you:</p>
+					<form>
+						<div>
+							<input id="random" type="radio" onclick="choose('random')" value="random" name="searchtype" checked>
+							<label for="random">Random</label>
+						</div>
+						<div>
+							<input id="from-categories" type="radio" onclick="choose('from-categories')" value="from-categories" name="searchtype">
+							<label for="from-categories">From categories</label>
+						</div>
+						<div id="categories"></div>
+						<div>
+							<input id="search" type="radio" onclick="choose('search')" value="search" name="searchtype">
+							<label for="search">Search</label>
+						</div>
+						<div id="queryblock">
+							<input id="query" type="text" name="search" placeholder="Free text search...">
+						</div>
+						<button type="button" onclick="getjoke()"><span>Get a joke</span></button>
+					</form>
+
+					<div id="place-for-joke">
+						
+					</div>
+				</div>
+			</div>
+			<div id="dark"></div>
+			<div id="panel">
+				<div class="favourite favourite-text-pc">Favourite</div>
+				<div class="favourite favourite-button-mb" onclick="closemenu()"><div class="img-button"><img src="SVG/fav-close.svg"></div>Favourite</div>
+				<div id="favourite-jokes">
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- Optional JavaScript -->
+	<script type="text/javascript" src="script.js"></script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+</body>
+</html>
